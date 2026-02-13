@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VortexWatch | Support Terminal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-purple: #bc13fe;
+            --dark-bg: #0a0a0c;
+            --card-bg: #16161a;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #333;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .hero-section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            border: 1px solid #2d2d35;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h2 { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); font-size: 1.2rem; }
+
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 15px; padding-left: 25px; position: relative; }
+        li::before {
+            content: "◈";
+            position: absolute;
+            left: 0;
+            color: var(--neon-purple);
+        }
+
+        .support-form {
+            background: #1c1c22;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0a0a0c;
+            border: 1px solid #3d3d45;
+            border-radius: 8px;
+            color: white;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 8px rgba(0, 242, 255, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        button:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        #statusMessage {
+            display: none;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid var(--neon-blue);
+            border-radius: 8px;
+            color: var(--neon-blue);
+        }
+
+        footer { text-align: center; margin-top: 50px; color: #666; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>VORTEXWATCH</h1>
+            <p>Official Support Terminal</p>
+        </header>
+
+        <section class="hero-section">
+            <h2>KEY FEATURES</h2>
+            <ul>
+                <li><strong>Designed for Digital Crown:</strong> Experience the most responsive 1:1 controls on watchOS. No lag, no inertia—just pure skill.</li>
+                <li><strong>Gravity-Flipping Action:</strong> The physics change with every bounce. Adapt instantly as the ball is pulled and pushed across the arena.</li>
+                <li><strong>Stackable Power-Ups:</strong> Collect Wide Paddle and Dual Paddle upgrades. Unlike other games, these effects stack for maximum chaos!</li>
+                <li><strong>Infinite Difficulty:</strong> Progress through increasingly complex brick patterns. After Level 3, the vortex gets tighter and the rings get denser.</li>
+                <li><strong>Premium Visuals:</strong> Vibrant particle effects, procedural explosions, and glowing "eye-candy" optimized for the Apple Watch display.</li>
+                <li><strong>Quick Sessions:</strong> Perfect for short bursts of gaming on the go.</li>
+            </ul>
+            <p style="text-align: center; font-style: italic; margin-top: 25px; color: var(--neon-purple);">
+                Will you conquer the circle, or will the vortex claim you?
+            </p>
+        </section>
+
+        <div class="support-form">
+            <h2 style="margin-top:0">Submit a Support Ticket</h2>
+            <form id="ticketForm">
+                <div class="input-group">
+                    <label>Agent Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="input-group">
+                    <label>Communication Channel (Email)</label>
+                    <input type="email" id="email" placeholder="email@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Issue Description</label>
+                    <textarea id="issue" rows="5" placeholder="Describe the glitch in the vortex..." required></textarea>
+                </div>
+                <button type="submit">TRANSMIT TICKET</button>
+            </form>
+            <div id="statusMessage">Ticket Transmitted. Our engineers are investigating the anomaly.</div>
+        </div>
+
+        <footer>
+            &copy; 2026 VortexWatch Systems. Optimized for WatchOS and High-Speed Play.
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('ticketForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('statusMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
