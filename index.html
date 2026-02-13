@@ -3,177 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VortexWatch | Support Terminal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>VortexWatch | Support & Features</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --neon-blue: #00f2ff;
-            --neon-purple: #bc13fe;
-            --dark-bg: #0a0a0c;
-            --card-bg: #16161a;
+            --primary-blue: #007AFF; /* Apple-style Blue */
+            --bg-gray: #f5f5f7;
+            --text-dark: #1d1d1f;
+            --border-radius: 18px;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--dark-bg);
-            color: #e0e0e0;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         header {
             text-align: center;
-            padding-bottom: 40px;
-            border-bottom: 1px solid #333;
+            margin-bottom: 40px;
         }
 
         h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            letter-spacing: 4px;
-            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
         }
 
-        .hero-section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 40px;
-            border: 1px solid #2d2d35;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        .subtitle {
+            color: #86868b;
+            font-size: 1.1rem;
         }
 
-        h2 { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); font-size: 1.2rem; }
-
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 15px; padding-left: 25px; position: relative; }
-        li::before {
-            content: "◈";
-            position: absolute;
-            left: 0;
-            color: var(--neon-purple);
+        /* Support Form Styling */
+        .card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
         }
 
-        .support-form {
-            background: #1c1c22;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
+        .form-group {
+            margin-bottom: 24px;
         }
 
-        .input-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
-        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
         input, textarea {
             width: 100%;
-            padding: 12px;
-            background: #0a0a0c;
-            border: 1px solid #3d3d45;
-            border-radius: 8px;
-            color: white;
+            padding: 14px;
+            border: 1px solid #d2d2d7;
+            border-radius: 12px;
+            font-size: 1rem;
             font-family: inherit;
             box-sizing: border-box;
+            transition: border-color 0.2s;
         }
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 8px rgba(0, 242, 255, 0.2);
+            border-color: var(--primary-blue);
         }
 
         button {
             width: 100%;
-            padding: 15px;
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
-            border: none;
-            border-radius: 8px;
+            padding: 16px;
+            background-color: var(--primary-blue);
             color: white;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s, opacity 0.2s;
+            transition: opacity 0.2s;
         }
 
-        button:hover { transform: translateY(-2px); opacity: 0.9; }
+        button:hover {
+            opacity: 0.9;
+        }
 
-        #statusMessage {
+        /* Success Message */
+        #success-msg {
             display: none;
             text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-            background: rgba(0, 242, 255, 0.1);
-            border: 1px solid var(--neon-blue);
-            border-radius: 8px;
-            color: var(--neon-blue);
+            padding: 20px;
+            color: #1d1d1f;
         }
 
-        footer { text-align: center; margin-top: 50px; color: #666; font-size: 0.8rem; }
+        #success-msg h3 { color: var(--primary-blue); }
+
+        /* Features Section */
+        .features-section {
+            padding: 20px 0;
+        }
+
+        .features-section h2 {
+            font-size: 1.4rem;
+            border-bottom: 1px solid #d2d2d7;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-item {
+            margin-bottom: 20px;
+        }
+
+        .feature-item strong {
+            display: block;
+            color: var(--primary-blue);
+            margin-bottom: 4px;
+        }
+
+        .feature-item p {
+            margin: 0;
+            color: #48484a;
+            font-size: 0.95rem;
+        }
+
+        .footer-tagline {
+            text-align: center;
+            margin-top: 40px;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.8rem;
+            color: #86868b;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>VORTEXWATCH</h1>
-            <p>Official Support Terminal</p>
+            <h1>VortexWatch Support</h1>
+            <p class="subtitle">How can we help you today?</p>
         </header>
 
-        <section class="hero-section">
-            <h2>KEY FEATURES</h2>
-            <ul>
-                <li><strong>Designed for Digital Crown:</strong> Experience the most responsive 1:1 controls on watchOS. No lag, no inertia—just pure skill.</li>
-                <li><strong>Gravity-Flipping Action:</strong> The physics change with every bounce. Adapt instantly as the ball is pulled and pushed across the arena.</li>
-                <li><strong>Stackable Power-Ups:</strong> Collect Wide Paddle and Dual Paddle upgrades. Unlike other games, these effects stack for maximum chaos!</li>
-                <li><strong>Infinite Difficulty:</strong> Progress through increasingly complex brick patterns. After Level 3, the vortex gets tighter and the rings get denser.</li>
-                <li><strong>Premium Visuals:</strong> Vibrant particle effects, procedural explosions, and glowing "eye-candy" optimized for the Apple Watch display.</li>
-                <li><strong>Quick Sessions:</strong> Perfect for short bursts of gaming on the go.</li>
-            </ul>
-            <p style="text-align: center; font-style: italic; margin-top: 25px; color: var(--neon-purple);">
-                Will you conquer the circle, or will the vortex claim you?
-            </p>
-        </section>
-
-        <div class="support-form">
-            <h2 style="margin-top:0">Submit a Support Ticket</h2>
-            <form id="ticketForm">
-                <div class="input-group">
-                    <label>Agent Name</label>
-                    <input type="text" id="name" placeholder="Enter your name" required>
+        <div class="card">
+            <form id="supportForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="John Doe" required>
                 </div>
-                <div class="input-group">
-                    <label>Communication Channel (Email)</label>
-                    <input type="email" id="email" placeholder="email@example.com" required>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="name@example.com" required>
                 </div>
-                <div class="input-group">
-                    <label>Issue Description</label>
-                    <textarea id="issue" rows="5" placeholder="Describe the glitch in the vortex..." required></textarea>
+                <div class="form-group">
+                    <label for="issue">Describe your issue</label>
+                    <textarea id="issue" rows="4" placeholder="How can we assist you with VortexWatch?" required></textarea>
                 </div>
-                <button type="submit">TRANSMIT TICKET</button>
+                <button type="submit">Submit Ticket</button>
             </form>
-            <div id="statusMessage">Ticket Transmitted. Our engineers are investigating the anomaly.</div>
+
+            <div id="success-msg">
+                <h3>Ticket Received</h3>
+                <p>We've logged your request. Our team will get back to you shortly.</p>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <h2>Key Features</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <strong>Designed for Digital Crown</strong>
+                    <p>Experience the most responsive 1:1 controls on watchOS. No lag, no inertia—just pure skill.</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Gravity-Flipping Action</strong>
+                    <p>The physics change with every bounce. Adapt instantly as the ball is pulled and pushed across the arena.</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Stackable Power-Ups</strong>
+                    <p>Collect Wide Paddle and Dual Paddle upgrades. Unlike other games, these effects stack for maximum chaos!</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Infinite Difficulty</strong>
+                    <p>Progress through increasingly complex brick patterns. After Level 3, the vortex gets tighter and the rings get denser.</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Premium Visuals</strong>
+                    <p>Vibrant particle effects, procedural explosions, and glowing "eye-candy" optimized for the Apple Watch display.</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Quick Sessions</strong>
+                    <p>Perfect for short bursts of gaming on the go.</p>
+                </div>
+            </div>
+
+            <p class="footer-tagline">Will you conquer the circle, or will the vortex claim you?</p>
         </div>
 
         <footer>
-            &copy; 2026 VortexWatch Systems. Optimized for WatchOS and High-Speed Play.
+            &copy; 2026 VortexWatch. All rights reserved.
         </footer>
     </div>
 
     <script>
-        document.getElementById('ticketForm').addEventListener('submit', function(e) {
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
             e.preventDefault();
             this.style.display = 'none';
-            document.getElementById('statusMessage').style.display = 'block';
+            document.getElementById('success-msg').style.display = 'block';
         });
     </script>
+
 </body>
 </html>
